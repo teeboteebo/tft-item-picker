@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "name": "B.F. Sword",
+    "children": []
+  },
+  {
+    "id": 2,
+    "name": "Recurve Bow",
+    "children": []
+  },
+  {
+    "id": 3,
+    "name": "Needlessly Large Rod",
+    "children": []
+  },
+  {
+    "id": 4,
+    "name": "Tear of the Goddess",
+    "children": []
+  },
+  {
+    "id": 5,
+    "name": "Chain Vest",
+    "children": []
+  },
+  {
+    "id": 6,
+    "name": "Negatron Cloak",
+    "children": []
+  },
+  {
+    "id": 7,
+    "name": "Giant's Belt",
+    "children": []
+  },
+  {
+    "id": 8,
+    "name": "Spatula",
+    "children": []
+  },
+  {
+    "id": 9,
+    "name": "Sparring Gloves",
+    "children": []
+  },
+  {
+    "id": 11,
+    "name": "Deathblade",
+    "children": [1, 1]
+  },
+  {
+    "id": 12,
+    "name": "Giant Slayer",
+    "children": [1, 2]
+  },
+  {
+    "id": 13,
+    "name": "Hextech Gunblade",
+    "children": [1, 3]
+  },
+  {
+    "id": 14,
+    "name": "Spear of Shojin",
+    "children": [1, 4]
+  },
+  {
+    "id": 15,
+    "name": "Guardian Angel",
+    "children": [1, 5]
+  },
+  {
+    "id": 16,
+    "name": "Bloodthirster",
+    "children": [1, 6]
+  },
+  {
+    "id": 17,
+    "name": "Zeke's Herald",
+    "children": [1, 7]
+  },
+  {
+    "id": 18,
+    "name": "Blade of the Ruined King",
+    "children": [1, 8]
+  },
+  {
+    "id": 19,
+    "name": "Infinity Edge",
+    "children": [1, 9]
+  },
+  {
+    "id": 22,
+    "name": "Rapid Firecannon",
+    "children": [2, 2]
+  },
+  {
+    "id": 23,
+    "name": "Guinsoo's Rageblade",
+    "children": [2, 3]
+  },
+  {
+    "id": 24,
+    "name": "Statikk Shiv",
+    "children": [2, 4]
+  },
+  {
+    "id": 25,
+    "name": "Titan's Resolve",
+    "children": [2, 5]
+  },
+  {
+    "id": 26,
+    "name": "Runaan's Hurricane",
+    "children": [2, 6]
+  },
+  {
+    "id": 27,
+    "name": "Zz'Rot Portal",
+    "children": [2, 7]
+  },
+  {
+    "id": 28,
+    "name": "Infiltrator's Talons",
+    "children": [2, 8]
+  },
+  {
+    "id": 29,
+    "name": "Last Whisper",
+    "children": [2, 9]
+  },
+  {
+    "id": 33,
+    "name": "Rabadon's Deathcap",
+    "children": [3, 3]
+  },
+  {
+    "id": 34,
+    "name": "Luden's Echo",
+    "children": [3, 4]
+  },
+  {
+    "id": 35,
+    "name": "Locket of the Iron Solari",
+    "children": [3, 5]
+  },
+  {
+    "id": 36,
+    "name": "Ionic Spark",
+    "children": [3, 6]
+  },
+  {
+    "id": 37,
+    "name": "Morellonomicon",
+    "children": [3, 7]
+  },
+  {
+    "id": 38,
+    "name": "Battlecast Armor",
+    "children": [3, 8]
+  },
+  {
+    "id": 39,
+    "name": "Jeweled Gauntlet",
+    "children": [3, 9]
+  },
+  {
+    "id": 44,
+    "name": "Seraph's Embrace",
+    "children": [4, 4]
+  },
+  {
+    "id": 45,
+    "name": "Frozen Heart",
+    "children": [4, 5]
+  },
+  {
+    "id": 46,
+    "name": "Chalice of Favor",
+    "children": [4, 6]
+  },
+  {
+    "id": 47,
+    "name": "Redemption",
+    "children": [4, 7]
+  },
+  {
+    "id": 48,
+    "name": "Star Guardian's Charm",
+    "children": [4, 8]
+  },
+  {
+    "id": 49,
+    "name": "Hand Of Justice",
+    "children": [4, 9]
+  },
+  {
+    "id": 55,
+    "name": "Bramble Vest",
+    "children": [5, 5]
+  },
+  {
+    "id": 56,
+    "name": "Sword Breaker",
+    "children": [5, 6]
+  },
+  {
+    "id": 57,
+    "name": "Red Buff",
+    "children": [5, 7]
+  },
+  {
+    "id": 58,
+    "name": "Rebel Medal",
+    "children": [5, 8]
+  },
+  {
+    "id": 59,
+    "name": "Shroud of Stillness",
+    "children": [5, 9]
+  },
+  {
+    "id": 66,
+    "name": "Dragon's Claw",
+    "children": [6, 6]
+  },
+  {
+    "id": 67,
+    "name": "Zephyr",
+    "children": [6, 7]
+  },
+  {
+    "id": 68,
+    "name": "Celestial Orb",
+    "children": [6, 8]
+  },
+  {
+    "id": 69,
+    "name": "Quicksilver",
+    "children": [6, 9]
+  },
+  {
+    "id": 77,
+    "name": "Warmog's Armor",
+    "children": [7, 7]
+  },
+  {
+    "id": 78,
+    "name": "Protector's Chestguard",
+    "children": [7, 8]
+  },
+  {
+    "id": 79,
+    "name": "Trap Claw",
+    "children": [7, 9]
+  },
+  {
+    "id": 88,
+    "name": "Force of Nature",
+    "children": [8, 8]
+  },
+  {
+    "id": 89,
+    "name": "Dark Star's Heart",
+    "children": [8, 9]
+  },
+  {
+    "id": 99,
+    "name": "Thief's Gloves",
+    "children": [9, 9]
+  }
+]
