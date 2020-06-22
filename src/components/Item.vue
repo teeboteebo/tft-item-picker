@@ -4,27 +4,15 @@
     :class="(selected1 || selected2) && 'selected'"
     :style="tooltip && {cursor: 'pointer'}"
   >
-    <v-tooltip
-      transition="slide-y-transition"
-      content-class="tooltip-custom"
-      eager
-      v-if="tooltip"
-      :disabled="mobile"
-      bottom
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <div class="img-wrap" v-bind="attrs" v-on="on">
-          <div class="badges">
-            <span v-if="selected1">1</span>
-            <span v-if="selected2">2</span>
-          </div>
+    <div class="img-wrap">
+      <div class="badges">
+        <span v-if="selected1">1</span>
+        <span v-if="selected2">2</span>
+      </div>
 
-          <v-img class="img" :src="img" />
-        </div>
-      </template>
-      <ItemHover :item="item" />
-    </v-tooltip>
-    <v-img v-else class="img-big" :src="img" />
+      <v-img class="img" :src="img" />
+    </div>
+    <ItemHover v-if="!mobile" class="hover" :item="item" />
   </div>
 </template>
 <script>
@@ -80,19 +68,32 @@ export default {
 <style lang="scss" scoped>
 $tooltip-background-color: black;
 .item {
+  position: relative;
   border-radius: 3px;
   transition: 0.1s all;
   &.selected {
-    transition: 0.1s all;
-    padding: 2px;
-    background-color: gold;
-    box-shadow: 0 0 8px 2px gold;
-    .img {
+    .img-wrap {
+      transition: 0.1s all;
       opacity: 0.97;
+      padding: 2px;
+      box-shadow: 0 0 8px 2px gold;
+      background-color: gold;
+    }
+  }
+  .hover {
+    display: none;
+    z-index: 10;
+  }
+  &:hover {
+    .hover {
+      position: absolute;
+      display: block;
+      bottom: calc(100% + 16px);
     }
   }
   .img-wrap {
     position: relative;
+
     .badges {
       position: absolute;
       z-index: 1;
@@ -113,15 +114,8 @@ $tooltip-background-color: black;
       }
     }
   }
-  .img-big {
-    border: 1px solid rgba(255, 215, 0, 0.5);
-  }
   p {
     margin-bottom: 0 !important;
-  }
-  .tooltip-custom {
-    opacity: 1 !important;
-    padding: 0;
   }
 }
 </style>

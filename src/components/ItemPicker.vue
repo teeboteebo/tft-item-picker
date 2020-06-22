@@ -20,12 +20,15 @@
       <v-col v-if="result" cols="12">
         <ItemHover class="d-inline-block" :item="result" />
       </v-col>
-      <v-col v-else class="center-center" cols="2" offset="5">
+      <v-col v-else cols="12">
+        <ItemHover class="d-inline-block" :item="notSelected" />
+      </v-col>
+      <!-- <v-col v-else class="center-center" cols="2" offset="5">
         <div>
           <Item :item="notSelected" />
           <p>...</p>
         </div>
-      </v-col>
+      </v-col> -->
     </v-row>
     <v-btn @click="clear" color="error" class="clear-btn">Clear Selections</v-btn>
     <h4 class="text-left mt-5">Upgraded Items</h4>

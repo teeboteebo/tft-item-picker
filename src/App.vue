@@ -60,6 +60,7 @@ export default {
   );
 
   .header {
+    z-index: 20;
     background: rgb(2, 0, 36);
     background: linear-gradient(
       140deg,

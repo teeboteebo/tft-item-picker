@@ -7,7 +7,7 @@
       <v-col cols="8" offset="1">
         <h4>{{item.name}}</h4>
         <div>
-          <div class="caption item-stat"  v-for="(stat, i) in stats" :key="`stat_${i}`">
+          <div class="caption item-stat" v-for="(stat, i) in stats" :key="`stat_${i}`">
             <div class="mr-2" v-if="stat.type">
               <img
                 :title="stat.type"
@@ -43,14 +43,17 @@ export default {
       try {
         const children = this.item.children.map(childId => {
           return items.find(item => item.id === childId);
-        });        const stats = children.map(child => {
+        });
+        const stats = children.map(child => {
           if (child.stats[0]) {
             return child.stats[0];
           } else {
             return { type: null, value: null };
           }
         });
-        return stats;
+        if(stats[0]){
+          return stats
+        } else return this.item.stats
       } catch (err) {
         return [];
       }

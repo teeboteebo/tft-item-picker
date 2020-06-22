@@ -4,17 +4,14 @@
     :class="possible && 'possible' || selected && 'selected'"
     :style="tooltip && {cursor: 'pointer'}"
   >
-    <v-tooltip transition="slide-y-transition" v-if="tooltip" :disabled="mobile" bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-img class="img" :src="img" v-bind="attrs" v-on="on" />
-      </template>
-      <ItemHover :item="item" />
-    </v-tooltip>
-    <v-img v-else class="img-big" :src="img" />
+    <div class="img-wrap">
+      <v-img class="img" :src="img" />
+    </div>
+    <ItemHover v-if="!mobile" class="hover" :item="item" />
   </div>
 </template>
 <script>
-import ItemHover from "./ItemHover"
+import ItemHover from "./ItemHover";
 export default {
   components: {
     ItemHover
@@ -70,29 +67,33 @@ export default {
 </script>
 <style lang="scss" scoped>
 .item {
+  position: relative;
   border-radius: 3px;
-  overflow: hidden;
   transition: 0.1s all;
-  &.selected {
+  &.possible {
     transition: 0.1s all;
     padding: 2px;
     background-color: gold;
     box-shadow: 0 0 8px 2px gold;
-    .img {
+
+    .img-wrap {
+      transition: 0.1s all;
       opacity: 0.97;
+      padding: 2px;
+      background-color: #00aeff;
+      box-shadow: 0 0 8px 2px #00aeff;
     }
   }
-  &.possible {
-    transition: 0.1s all;
-    padding: 2px;
-    background-color: #00aeff;
-    box-shadow: 0 0 8px 2px #00aeff;
-    .img {
-      opacity: 0.97;
-    }
+  .hover {
+    display: none;
+    z-index: 10;
   }
-  .img-big {
-    border: 1px solid rgba(255, 215, 0, 0.5);
+  &:hover {
+    .hover {
+      position: absolute;
+      display: block;
+      bottom: calc(100% + 16px);
+    }
   }
   p {
     margin-bottom: 0 !important;
