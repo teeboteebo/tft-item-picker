@@ -3,7 +3,7 @@
     <h4 class="text-left mt-5">Base Items</h4>
     <v-divider color="#eee"></v-divider>
     <v-row dense class="basic-items my-5">
-      <v-col cols="2" sm="1" v-for="(item) in items.slice(0,9)" :key="item.name">
+      <v-col cols="2" sm="1" v-for="(item) in basicItems" :key="item.name">
         <div @click="() => toggleBasicItem(item)">
           <Item
             :tooltip="true"
@@ -16,42 +16,11 @@
     <h4 class="text-left mt-5">Result</h4>
     <v-divider color="#eee"></v-divider>
     <v-row dense class="combinations my-5">
-
-      <v-col cols="2">
-        <div v-if="selected1">
-          <Item :item="selected1" />
-          <p>{{selected1.name}}</p>
-          <p v-if="selected1.desc">{{selected1.desc}}</p>
-        </div>
-        <div v-else>
-          <Item :item="notSelected" />
-          <p>...</p>
-          <p v-if="result && result.desc">{{result.desc}}</p>
-        </div>
+      <v-col v-if="result" cols="12">
+        <ItemHover class="d-inline-block" :item="result" />
       </v-col>
-      <v-col cols="2" class="center-center">
-        <v-icon size="36" color="#eee">mdi-plus</v-icon>
-      </v-col>
-      <v-col cols="2">
-        <div v-if="selected2">
-          <Item :item="selected2" />
-          <p>{{selected2.name}}</p>
-          <p v-if="selected2.desc">{{selected2.desc}}</p>
-        </div>
-        <div v-else>
-          <Item :item="notSelected" />
-          <p>...</p>
-        </div>
-      </v-col>
-      <v-col class="center-center">
-        <v-icon size="36" color="#eee">mdi-equal</v-icon>
-      </v-col>
-      <v-col cols="2">
-        <div v-if="result">
-          <Item :item="result" />
-          <p class="text-right">{{result.name}}</p>
-        </div>
-        <div v-else>
+      <v-col v-else class="center-center" cols="2" offset="5">
+        <div>
           <Item :item="notSelected" />
           <p>...</p>
         </div>
@@ -61,7 +30,7 @@
     <h4 class="text-left mt-5">Upgraded Items</h4>
     <v-divider color="#eee"></v-divider>
     <v-row dense class="upgraded-items my-5">
-      <v-col cols="2" sm="1" v-for="(item) in items.slice(9,-1)" :key="item.name">
+      <v-col cols="2" sm="1" v-for="(item) in upgradedItems" :key="item.name">
         <div @click="() => toggleUpgradedItem(item)">
           <ItemUpgraded
             :possible="possible.includes(item) ? true : false"
@@ -78,11 +47,13 @@
 import items from "@/assets/items.json";
 import Item from "../components/Item";
 import ItemUpgraded from "../components/ItemUpgraded";
+import ItemHover from "../components/ItemHover";
 export default {
   name: "ItemPicker",
   components: {
     Item,
-    ItemUpgraded
+    ItemUpgraded,
+    ItemHover
   },
   data() {
     return {
@@ -132,21 +103,40 @@ export default {
     }
   },
   computed: {
+    basicItems() {
+      return this.items.slice(0, 9);
+    },
+    upgradedItems() {
+      return this.items.slice(9, -1);
+    },
     possible() {
       if (this.selected1 && !this.selected2) {
-        return items.filter(upgrade =>
+        return this.items.filter(upgrade =>
           upgrade.children.includes(this.selected1.id)
         );
       } else if (!this.selected1 && this.selected2) {
-        return items.filter(upgrade =>
+        return this.items.filter(upgrade =>
           upgrade.children.includes(this.selected2.id)
         );
       } else if (!this.selected1 && !this.selected2) {
         return [];
       } else if (this.selected1 && this.selected2) {
-        return items
-          .filter(upgrade => upgrade.children[0] === this.selected1.id)
-          .filter(upgrade => upgrade.children[1] === this.selected2.id);
+        if (this.selected1 === this.selected2) {
+          return this.items
+            .filter(upgrade => upgrade.children[0] === this.selected1.id)
+            .filter(upgrade => upgrade.children[1] === this.selected2.id);
+        }
+        return this.items
+          .filter(
+            upgrade =>
+              upgrade.children[0] === this.selected1.id ||
+              upgrade.children[1] === this.selected1.id
+          )
+          .filter(
+            upgrade =>
+              upgrade.children[1] === this.selected2.id ||
+              upgrade.children[0] === this.selected2.id
+          );
       }
     },
     result() {
@@ -160,21 +150,19 @@ export default {
 <style lang="scss" scoped>
 .item-picker {
   text-align: center;
-  .basic-items {
-  }
+
   .combinations {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 5px solid;
-    border-top-color: #ffd700;
-    border-left-color: #ceaf00;
-    border-right-color: #947e00;
-    border-bottom-color: #695a00;
+    // background-color: rgba(0, 0, 0, 0.5);
+    // border: 5px solid;
+    // border-top-color: #ffd700;
+    // border-left-color: #ceaf00;
+    // border-right-color: #947e00;
+    // border-bottom-color: #695a00;
     // background-image: url('/img/border.png');
     // background-size: cover;
     color: #eee;
-    min-height: 140px;
+    height: 240px;
     @media screen and (min-width: 800px) {
-      min-height: 186px;
     }
     p {
       margin-bottom: 0;

@@ -1,16 +1,16 @@
 <template>
   <div class="item" :class="selected && 'selected'" :style="tooltip && {cursor: 'pointer'}">
-    <v-tooltip v-if="tooltip" :disabled="mobile" max-width="300" bottom>
+    <v-tooltip transition="slide-y-transition" content-class="tooltip-custom" eager v-if="tooltip" :disabled="mobile" bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-img class="img" :src="img" v-bind="attrs" v-on="on" />
       </template>
-      <h4>{{item.name}}</h4>
-      <p v-if="item.desc">{{item.desc}}</p>
+      <ItemHover :item="item" />
     </v-tooltip>
     <v-img v-else class="img-big" :src="img" />
   </div>
 </template>
 <script>
+import ItemHover from './ItemHover'
 export default {
   props: {
     item: {
@@ -29,12 +29,10 @@ export default {
       default: false
     }
   },
-  created() {},
-  data() {
-    return {
-      test: true
-    };
+  components: {
+    ItemHover
   },
+  created() {},
   computed: {
     mobile() {
       try {
@@ -58,6 +56,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$tooltip-background-color: black;
 .item {
   border-radius: 3px;
   overflow: hidden;
@@ -76,6 +75,10 @@ export default {
   }
   p {
     margin-bottom: 0 !important;
+  }
+  .tooltip-custom {
+    opacity: 1 !important;
+    padding: 0;
   }
 }
 </style>

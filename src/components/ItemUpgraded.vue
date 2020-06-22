@@ -1,17 +1,24 @@
 <template>
-  <div  class="item" :class="possible && 'possible' || selected && 'selected'" :style="tooltip && {cursor: 'pointer'}">
-    <v-tooltip v-if="tooltip" :disabled="mobile" max-width="300" bottom>
+  <div
+    class="item"
+    :class="possible && 'possible' || selected && 'selected'"
+    :style="tooltip && {cursor: 'pointer'}"
+  >
+    <v-tooltip transition="slide-y-transition" v-if="tooltip" :disabled="mobile" bottom>
       <template v-slot:activator="{ on, attrs }">
         <v-img class="img" :src="img" v-bind="attrs" v-on="on" />
       </template>
-      <h4>{{item.name}}</h4>
-      <p v-if="item.desc">{{item.desc}}</p>
+      <ItemHover :item="item" />
     </v-tooltip>
     <v-img v-else class="img-big" :src="img" />
   </div>
 </template>
 <script>
+import ItemHover from "./ItemHover"
 export default {
+  components: {
+    ItemHover
+  },
   props: {
     item: {
       type: Object,
@@ -38,9 +45,8 @@ export default {
       test: true
     };
   },
-  
+
   computed: {
-  
     mobile() {
       try {
         document.createEvent("TouchEvent");
