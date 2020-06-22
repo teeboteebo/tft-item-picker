@@ -108,10 +108,10 @@ export default {
   },
   computed: {
     basicItems() {
-      return this.items.slice(0, 9);
+      return [...this.items].slice(0, 9);
     },
     upgradedItems() {
-      return this.items.slice(9, -1);
+      return [...this.items].slice(9, 100);
     },
     possible() {
       if (this.selected1 && !this.selected2) {

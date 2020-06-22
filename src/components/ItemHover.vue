@@ -44,15 +44,18 @@ export default {
         const children = this.item.children.map(childId => {
           return items.find(item => item.id === childId);
         });
+        const statArray = []
         const stats = children.map(child => {
           if (child.stats[0]) {
-            return child.stats[0];
+           child.stats.forEach(stat => {
+             statArray.push(stat)
+           });
           } else {
             return { type: null, value: null };
           }
         });
-        if(stats[0]){
-          return stats
+        if(statArray[0]){
+          return statArray
         } else return this.item.stats
       } catch (err) {
         return [];
