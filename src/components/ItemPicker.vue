@@ -198,6 +198,10 @@ export default {
     // background-image: url('/img/border.png');
     // background-size: cover;
     color: #eee;
+    min-height: 140px;
+    @media screen and (min-width: 800px) {
+      min-height: 186px;
+    }
     p {
       margin-bottom: 0;
     }
