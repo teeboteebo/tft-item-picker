@@ -95,34 +95,16 @@ export default {
       }
     };
   },
-  updated() {
-    console.log(`
-    ---------\n
-    sel1: ${this.selected1}
-    sel2: ${this.selected2}
-    res: ${this.result}
-    pos: ${JSON.stringify(this.possible)}
-    ---------\n
-    `);
-  },
   methods: {
     clear() {
-      console.log("CLEARRRR");
-
       this.selected1 = undefined;
       this.selected2 = undefined;
     },
     toggleBasicItem(item) {
-      console.log(`CHECKING: ${item.name}`);
-
       if (this.selected1 === item && this.selected2 === item) {
-        console.log("It's in both");
         return this.clear();
       }
-
       if (this.selected1 === item || this.selected2 === item) {
-        console.log("It's in 1 or 2");
-
         if (this.selected1 === item) {
           if (this.selected1 && this.selected2) {
             return (this.selected1 = undefined);
@@ -133,23 +115,16 @@ export default {
           }
         }
       }
-
       if (this.selected1 !== item || this.selected2 !== item) {
-        console.log("not both");
         if (!this.selected1) {
-          console.log(`Not 1, Selecting: ${item.name}`);
-
           this.selected1 = item;
         } else if (!this.selected2) {
-          console.log(`Not 2, Selecting: ${item.name}`);
           this.selected2 = item;
         }
       }
     },
     toggleUpgradedItem(upgradedItem) {
       if (this.result === upgradedItem) {
-        console.log("callin clear");
-
         return this.clear();
       }
       this.selected1 = items.find(item => item.id === upgradedItem.children[0]);
@@ -176,7 +151,6 @@ export default {
     },
     result() {
       if (this.possible.length === 1) {
-        console.log(this.possible[0]);
         return this.possible[0];
       } else undefined;
     }
