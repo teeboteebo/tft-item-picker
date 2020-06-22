@@ -1,12 +1,13 @@
 <template>
-  <v-container max-width="800" class="home mt-sm-2">
+  <v-container class="home my-sm-2">
     <div class="text">
       <h1>
         <v-icon dark>mdi-sword</v-icon>Team Fight Tactics
         <v-icon dark>mdi-sword</v-icon>
       </h1>
       <h2>Item Picker</h2>
-      <p>Either combine 2 standard items to see what the make together or select an upgraded item to see what it's made from.</p>
+      <v-divider color="#eee"></v-divider>
+      <p class="mt-4">Either combine 2 standard items to see what the make together or select an upgraded item to see what it's made from.</p>
     </div>
     <ItemPicker />
   </v-container>
@@ -36,7 +37,7 @@ export default {
       font-size: 1.5rem;
     }
     h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 0;
     }
     p {
       margin: 0;

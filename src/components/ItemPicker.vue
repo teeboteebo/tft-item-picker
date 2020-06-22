@@ -13,7 +13,10 @@
         </div>
       </v-col>
     </v-row>
+    <h4 class="text-left mt-5">Result</h4>
+    <v-divider color="#eee"></v-divider>
     <v-row dense class="combinations my-5">
+
       <v-col cols="2">
         <div v-if="selected1">
           <Item :item="selected1" />
@@ -46,7 +49,7 @@
       <v-col cols="2">
         <div v-if="result">
           <Item :item="result" />
-          <p>{{result.name}}</p>
+          <p class="text-right">{{result.name}}</p>
         </div>
         <div v-else>
           <Item :item="notSelected" />
