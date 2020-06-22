@@ -1,8 +1,26 @@
 <template>
-  <div class="item" :class="selected && 'selected'" :style="tooltip && {cursor: 'pointer'}">
-    <v-tooltip transition="slide-y-transition" content-class="tooltip-custom" eager v-if="tooltip" :disabled="mobile" bottom>
+  <div
+    class="item"
+    :class="(selected1 || selected2) && 'selected'"
+    :style="tooltip && {cursor: 'pointer'}"
+  >
+    <v-tooltip
+      transition="slide-y-transition"
+      content-class="tooltip-custom"
+      eager
+      v-if="tooltip"
+      :disabled="mobile"
+      bottom
+    >
       <template v-slot:activator="{ on, attrs }">
-        <v-img class="img" :src="img" v-bind="attrs" v-on="on" />
+        <div class="img-wrap" v-bind="attrs" v-on="on">
+          <div class="badges">
+            <span v-if="selected1">1</span>
+            <span v-if="selected2">2</span>
+          </div>
+
+          <v-img class="img" :src="img" />
+        </div>
       </template>
       <ItemHover :item="item" />
     </v-tooltip>
@@ -10,7 +28,7 @@
   </div>
 </template>
 <script>
-import ItemHover from './ItemHover'
+import ItemHover from "./ItemHover";
 export default {
   props: {
     item: {
@@ -20,7 +38,11 @@ export default {
         name: "Select an item"
       }
     },
-    selected: {
+    selected1: {
+      type: Boolean,
+      default: false
+    },
+    selected2: {
       type: Boolean,
       default: false
     },
@@ -59,7 +81,6 @@ export default {
 $tooltip-background-color: black;
 .item {
   border-radius: 3px;
-  overflow: hidden;
   transition: 0.1s all;
   &.selected {
     transition: 0.1s all;
@@ -68,6 +89,28 @@ $tooltip-background-color: black;
     box-shadow: 0 0 8px 2px gold;
     .img {
       opacity: 0.97;
+    }
+  }
+  .img-wrap {
+    position: relative;
+    .badges {
+      position: absolute;
+      z-index: 1;
+      bottom: calc(100% - 8px);
+      width: 110%;
+      text-align: left;
+      span {
+        text-align: center;
+        font-weight: bold;
+        box-shadow: 0 0 2px black;
+        margin-right: 4px;
+        font-size: 13px;
+        background: linear-gradient(140deg, gold, #2e003d 100%);
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 40px;
+      }
     }
   }
   .img-big {

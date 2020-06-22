@@ -8,7 +8,8 @@
           <Item
             :tooltip="true"
             :item="item"
-            :selected="item === selected1 || item === selected2 ? true : false"
+            :selected1="item === selected1 ? true : false"
+            :selected2="item === selected2 ? true : false"
           />
         </div>
       </v-col>
