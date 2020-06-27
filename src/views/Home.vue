@@ -2,12 +2,15 @@
   <v-container class="home my-sm-2">
     <div class="text">
       <h1>
-        <v-icon dark>mdi-sword</v-icon>Team Fight Tactics
+        <v-icon dark>mdi-sword</v-icon>Team Fight Tactics - Cheat Sheet
         <v-icon dark>mdi-sword</v-icon>
       </h1>
-      <h2>Item Picker</h2>
       <v-divider color="#eee"></v-divider>
-      <p class="mt-4">Either combine 2 standard items to see what the make together or select an upgraded item to see what it's made from.</p>
+      <p class="mt-4">Use this tool in order to find the desired item combination, by either:</p>
+      <ul>
+        <li>selecting two base items to see what they create together.</li>
+        <li>select one upgraded item to see what two base items are combined for it.</li>
+      </ul>
     </div>
     <ItemPicker />
   </v-container>

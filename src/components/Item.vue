@@ -68,12 +68,13 @@ export default {
 <style lang="scss" scoped>
 $tooltip-background-color: black;
 .item {
+  background-color: #050613;
   position: relative;
   border-radius: 3px;
   transition: 0.1s all;
   &.selected {
     .img-wrap {
-      transition: 0.1s all;
+       transition: 0.1s all;
       opacity: 0.97;
       padding: 2px;
       box-shadow: 0 0 8px 2px gold;
@@ -85,6 +86,14 @@ $tooltip-background-color: black;
     z-index: 10;
   }
   &:hover {
+    .img-wrap {
+      transition: 0.1s all;
+      opacity: 0.97;
+      padding: 2px;
+      
+      box-shadow: 0 0 8px 2px gold;
+      background-color: gold;
+    }
     .hover {
       position: absolute;
       display: block;

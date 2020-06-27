@@ -22,8 +22,8 @@
       <v-container class="footer">
         <v-row>
           <v-col>
-            <p>This site aims to help out newer players to TFT, <a href="https://euw.leagueoflegends.com/en/featured/events/teamfight-tactics"  rel="noreferrer" target="_blank">Team Fight Tactics</a>. All the different available items can be confusing to keep track of and this is a simple tool to play around with.</p>
-            <p>With this TFT item combiner, you can select either two base items to see what they upgrade to. Or you can select the upgraded item that you want to see what combination of base items are used for it.</p>
+            <p>This site aims to help out newer players to TFT, <a href="https://euw.leagueoflegends.com/en/featured/events/teamfight-tactics"  rel="noreferrer" target="_blank">Team Fight Tactics</a>. All the different available items can be confusing to keep track of and this cheat sheet is simple to play around with in order to find the best TFT item combinations.</p>
+            <p>With this TFT item cheat sheet, you can select either two base items to see what they upgrade to. Or you can select the upgraded item that you want to see the combination of base items for.</p>
             <p>
               If you want to reach out to me for a bug report or anything else, you can do that by contacting me via
               <a href="https://twitter.com/teebo__" rel="noreferrer" target="_blank">Twitter</a>. The site will be updated when time's available.

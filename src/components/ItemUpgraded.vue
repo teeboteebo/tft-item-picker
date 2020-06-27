@@ -67,21 +67,19 @@ export default {
 </script>
 <style lang="scss" scoped>
 .item {
+  background-color: #050613;
   position: relative;
   border-radius: 3px;
   transition: 0.1s all;
   &.possible {
     transition: 0.1s all;
-    padding: 2px;
-    background-color: gold;
-    box-shadow: 0 0 8px 2px gold;
-
+    background-color: #00aeff;
     .img-wrap {
       transition: 0.1s all;
       opacity: 0.97;
       padding: 2px;
-      background-color: #00aeff;
       box-shadow: 0 0 8px 2px #00aeff;
+      background-color: #00aeff;
     }
   }
   .hover {
@@ -89,6 +87,13 @@ export default {
     z-index: 10;
   }
   &:hover {
+    .img-wrap {
+      transition: 0.1s all;
+      opacity: 0.97;
+      padding: 2px;
+      box-shadow: 0 0 8px 2px #00aeff;
+      background-color: #00aeff;
+    }
     .hover {
       position: absolute;
       display: block;
